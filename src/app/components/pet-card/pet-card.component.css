@@ -1,0 +1,27 @@
+.pet-card {
+    width: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 20px;
+  }
+  
+  img {
+    height: 220px;
+    object-fit: cover;
+  }
+  
+  h2 {
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+
+    .pet-card {
+      width: 100%;
+      margin: 10px 0;
+    }
+  
+    img {
+      height: 200px;
+    }
+  }  

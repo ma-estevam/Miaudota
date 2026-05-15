@@ -1,1 +1,18 @@
-<p>pet-card works!</p>
+<mat-card class="pet-card">
+
+    <img mat-card-image [src]="imagem" [alt]="nome">
+  
+    <mat-card-content>
+      <h2>{{ nome }}</h2>
+  
+      <p>Tipo: {{ tipo }}</p>
+      <p>Idade: {{ idade }}</p>
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <button mat-raised-button color="primary">
+        Ver mais
+      </button>
+    </mat-card-actions>
+  
+  </mat-card>
