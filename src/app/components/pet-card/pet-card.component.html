@@ -1,8 +1,5 @@
 <mat-card class="pet-card">
 
-  <img
-    [src]="pet.imagem"
-    [alt]="pet.nome">
 
   <mat-card-content>
 
@@ -20,9 +17,15 @@
 
   <mat-card-actions>
 
-    <button mat-raised-button color="primary">
-      Ver detalhes
-    </button>
+  <button
+  mat-raised-button
+  color="primary"
+
+  [routerLink]="['/pet', pet.id]">
+
+  Ver detalhes
+
+</button>
 
   </mat-card-actions>
 

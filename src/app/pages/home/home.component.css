@@ -1,55 +1,111 @@
+/* ============================================================
+   HOME COMPONENT — home.component.css
+   HTML: section.hero > .hero-text > h1 | p | button[mat-raised-button]
+   ============================================================ */
+
+/* ─── section.hero ─── */
 .hero {
-
-  height: 80vh;
-
+  position: relative;
+  background: var(--color-primary);
+  min-height: calc(100vh - var(--navbar-height));
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  text-align: center;
-
+  justify-content: center;
+  overflow: hidden;
+  padding: 3rem 2rem;
 }
 
+/* Círculos decorativos de fundo */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  top: -120px;
+  right: -80px;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(26, 35, 50, 0.07);
+  bottom: -60px;
+  left: 10%;
+  pointer-events: none;
+}
+
+/* ─── .hero-text ─── */
 .hero-text {
-
-  max-width: 700px;
-
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  animation: fadeInUp 0.6s ease both;
 }
 
-.hero h1 {
-
-  font-size: 56px;
-
-  margin-bottom: 20px;
-
-  color: #222;
-
+/* ─── h1 dentro de .hero-text ─── */
+.hero-text h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 5vw, 3.25rem);
+  font-weight: 900;
+  color: var(--color-text);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
 }
 
-.hero p {
-
-  font-size: 20px;
-
-  color: #666;
-
-  margin-bottom: 30px;
-
+/* ─── p dentro de .hero-text ─── */
+.hero-text p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(26, 35, 50, 0.72);
+  line-height: 1.65;
+  max-width: 420px;
 }
 
-button {
-
-  padding: 10px 30px;
-
-  border-radius: 12px;
-
+/* ─── button[mat-raised-button] dentro de .hero-text ─── */
+/* O override global já estiliza o mat-raised-button.mat-primary.
+   Aqui ajustamos tamanho maior para o CTA do hero. */
+.hero-text .mat-mdc-raised-button.mat-primary {
+  height: 52px !important;
+  font-size: 1rem !important;
+  padding: 0 2rem !important;
+  margin-top: 0.5rem;
+  animation: fadeInUp 0.7s ease 0.2s both;
 }
 
-@media(max-width:768px){
-
-  .hero h1 {
-
-    font-size: 36px;
-
+/* ─── Responsividade ─── */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 75vh;
+    padding: 2.5rem 1.25rem;
   }
 
+  .hero-text h1 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 70vh;
+    padding: 2rem 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.65rem;
+  }
 }

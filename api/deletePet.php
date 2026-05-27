@@ -1,0 +1,39 @@
+<?php
+
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
+$host = "localhost";
+$db = "pataforma";
+$user = "root";
+$pass = "";
+
+try {
+
+    $pdo = new PDO(
+        "mysql:host=$host;dbname=$db",
+        $user,
+        $pass
+    );
+
+    $id = $_GET['id'] ?? null;
+
+    $sql = "DELETE FROM pets WHERE id = :id";
+
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->execute([
+        'id' => $id
+    ]);
+
+    echo json_encode([
+        "mensagem" => "Pet removido!"
+    ]);
+
+} catch(PDOException $e){
+
+    echo json_encode([
+        "erro" => $e->getMessage()
+    ]);
+
+}

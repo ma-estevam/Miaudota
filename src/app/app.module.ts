@@ -22,6 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
 /* PAGES */
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PetsComponent } from './pages/pets/pets.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DetalhesComponent } from './pages/detalhes/detalhes.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { PetsComponent } from './pages/pets/pets.component';
 
     CadastroComponent,
     PetsComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    DetalhesComponent
   ],
 
   imports: [

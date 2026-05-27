@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PetsComponent } from './pages/pets/pets.component';
+import { DetalhesComponent } from './pages/detalhes/detalhes.component';
 
 const routes: Routes = [
 
@@ -20,7 +21,12 @@ const routes: Routes = [
   {
     path: 'pets',
     component: PetsComponent
-  }
+  },
+  
+  {
+  path: 'pet/:id',
+  component: DetalhesComponent
+}
 
 ];
 

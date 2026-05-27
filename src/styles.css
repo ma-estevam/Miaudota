@@ -1,7 +1,197 @@
 /* You can add global styles to this file, and also import other style files */
+/* ============================================================
+   PATAFORMA — styles.css
+   Design System Global + Material Design Overrides
+   Paleta: Amarelo #FFD600 | Laranja #FF6B35 | Azul #E8F4FD
+   Fontes: Poppins (display) + Nunito (body)
+   ============================================================ */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* ─── Design Tokens ─── */
+:root {
+  --color-primary:        #FFD600;
+  --color-primary-dark:   #E6C000;
+  --color-primary-light:  #FFF9C4;
+  --color-secondary:      #FF6B35;
+  --color-secondary-dark: #E05520;
+  --color-accent:         #00C2A8;
+
+  --color-bg:             #FFFFFF;
+  --color-bg-soft:        #F5FBFF;
+  --color-bg-blue:        #E8F4FD;
+  --color-surface:        #FFFFFF;
+  --color-border:         #E2EDF5;
+
+  --color-text:           #1A2332;
+  --color-text-muted:     #6B7C93;
+  --color-text-light:     #A0B0C0;
+
+  --color-success:        #2ECC71;
+  --color-danger:         #E74C3C;
+
+  --font-display:         'Poppins', sans-serif;
+  --font-body:            'Nunito', sans-serif;
+
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   32px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.07);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.14);
+  --shadow-primary:   0 4px 20px rgba(255,214,0,0.45);
+  --shadow-secondary: 0 4px 20px rgba(255,107,53,0.35);
+
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-bounce: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --navbar-height: 68px;
+  --container-max: 1200px;
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+button { font-family: var(--font-body); cursor: pointer; }
+
+/* ─── Material Design Theme Override ─── */
+
+/* Paleta primary → amarelo */
+:root {
+  --mat-sys-primary:             #1A2332;
+  --mat-sys-on-primary:          #FFD600;
+  --mat-sys-primary-container:   #FFF9C4;
+  --mat-sys-surface:             #FFFFFF;
+  --mat-sys-background:          #F5FBFF;
+  --mat-sys-on-surface:          #1A2332;
+  --mat-sys-outline:             #E2EDF5;
+  --mat-sys-error:               #E74C3C;
+}
+
+/* Botão mat-raised-button[color="primary"] */
+.mat-mdc-raised-button.mat-primary {
+  background-color: var(--color-primary) !important;
+  color: var(--color-text) !important;
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: 0.02em !important;
+  border-radius: var(--radius-full) !important;
+  box-shadow: var(--shadow-primary) !important;
+  padding: 0 1.5rem !important;
+  height: 44px !important;
+  transition: all var(--transition-bounce) !important;
+}
+
+.mat-mdc-raised-button.mat-primary:hover {
+  background-color: var(--color-primary-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 24px rgba(255,214,0,0.55) !important;
+}
+
+.mat-mdc-raised-button.mat-primary:active {
+  transform: scale(0.97) !important;
+}
+
+/* Botão warn */
+.mat-mdc-raised-button.mat-warn {
+  background-color: var(--color-danger) !important;
+  color: #fff !important;
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  border-radius: var(--radius-full) !important;
+  height: 44px !important;
+  transition: all var(--transition-bounce) !important;
+}
+
+.mat-mdc-raised-button.mat-warn:hover {
+  background-color: #c0392b !important;
+  transform: translateY(-2px) !important;
+}
+
+/* mat-card reset para usar nosso estilo */
+.mat-mdc-card {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-sm) !important;
+  border: 1.5px solid var(--color-border) !important;
+  overflow: hidden !important;
+  transition: all var(--transition-base) !important;
+  background: var(--color-surface) !important;
+  padding: 0 !important;
+}
+
+.mat-mdc-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: var(--shadow-xl) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.mat-mdc-card-content {
+  padding: 1rem 1rem 0.5rem !important;
+}
+
+.mat-mdc-card-actions {
+  padding: 0.75rem 1rem 1rem !important;
+}
+
+/* mat-toolbar reset */
+.mat-toolbar {
+  font-family: var(--font-body) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar        { width: 8px; height: 8px; }
+::-webkit-scrollbar-track  { background: var(--color-bg-soft); }
+::-webkit-scrollbar-thumb  { background: var(--color-primary); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary-dark); }
+
+::selection { background: var(--color-primary); color: var(--color-text); }
+
+/* ─── Animações globais ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ─── Responsividade base ─── */
+@media (max-width: 768px) {
+  :root { --navbar-height: 60px; }
+}

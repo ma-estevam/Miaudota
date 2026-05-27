@@ -1,67 +1,119 @@
+/* ============================================================
+   NAVBAR COMPONENT — navbar.component.css
+   HTML: mat-toolbar.navbar > .logo | .nav-links > a
+   ============================================================ */
+
+/* ─── mat-toolbar.navbar ─── */
 .navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  height: var(--navbar-height) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  box-shadow: var(--shadow-sm) !important;
+  padding: 0 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.5rem !important;
+  font-family: var(--font-body) !important;
+  transition: box-shadow var(--transition-base) !important;
+}
 
+/* ─── Logo ─── */
+.navbar .logo {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  cursor: pointer;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  padding: 0 30px;
-
-  background: linear-gradient(
-    90deg,
-    #ff6b81,
-    #ff8e53
-  );
-
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-
-}
-
-.logo {
-
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-
-}
-
-.nav-links {
-
-  display: flex;
-  gap: 25px;
-
-}
-
-.nav-links a {
-
-  color: white;
+  gap: 0.4rem;
   text-decoration: none;
-  font-weight: 600;
-
-  transition: 0.3s;
-
+  transition: opacity var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+  user-select: none;
 }
 
-.nav-links a:hover {
-
-  transform: translateY(-2px);
-  opacity: 0.8;
-
+.navbar .logo:hover {
+  opacity: 0.85;
 }
 
-@media(max-width: 768px){
+/* Destaca a palavra "forma" em laranja */
+.navbar .logo::after {
+  content: '';
+}
 
+/* ─── Nav links container ─── */
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+
+/* ─── Links individuais ─── */
+.navbar .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--color-text-muted);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+}
+
+.navbar .nav-links a:hover {
+  color: var(--color-text);
+  background: var(--color-bg-soft);
+}
+
+/* Link ativo (routerLinkActive="active" no Angular) */
+.navbar .nav-links a.active,
+.navbar .nav-links a[aria-current="page"] {
+  color: var(--color-text);
+  background: var(--color-primary-light);
+}
+
+.navbar .nav-links a.active::after,
+.navbar .nav-links a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+/* ─── Responsividade ─── */
+@media (max-width: 600px) {
   .navbar {
-
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-
+    padding: 0 1rem !important;
   }
 
-  .nav-links {
-
-    margin-top: 15px;
-
+  .navbar .nav-links {
+    gap: 0;
   }
 
+  .navbar .nav-links a {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .navbar .logo {
+    font-size: 1.05rem;
+  }
 }

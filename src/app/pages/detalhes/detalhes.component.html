@@ -1,1 +1,48 @@
-<p>detalhes works!</p>
+<div class="detalhes-container">
+
+
+  <div class="info">
+
+    <input
+      type="text"
+      [(ngModel)]="pet.nome">
+
+    <input
+      type="text"
+      [(ngModel)]="pet.idade">
+
+    <input
+      type="text"
+      [(ngModel)]="pet.raca">
+
+    <input
+      type="text"
+      [(ngModel)]="pet.tipo">
+
+    <textarea
+      [(ngModel)]="pet.descricao">
+    </textarea>
+
+    <button
+      mat-raised-button
+      color="primary"
+
+      (click)="atualizar()">
+
+      Atualizar
+
+    </button>
+
+    <button
+      mat-raised-button
+      color="warn"
+
+      (click)="excluir()">
+
+      Excluir
+
+    </button>
+
+  </div>
+
+</div>
