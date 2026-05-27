@@ -1,27 +1,55 @@
 .pet-card {
-    width: 300px;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 20px;
-  }
-  
-  img {
-    height: 220px;
-    object-fit: cover;
-  }
-  
-  h2 {
-    margin-top: 10px;
-  }
 
-  @media (max-width: 768px) {
+  width: 320px;
 
-    .pet-card {
-      width: 100%;
-      margin: 10px 0;
-    }
-  
-    img {
-      height: 200px;
-    }
-  }  
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  transition: 0.3s;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+.pet-card:hover {
+
+  transform: translateY(-8px);
+
+}
+
+.pet-card img {
+
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+
+}
+
+mat-card-content {
+
+  padding: 20px;
+
+}
+
+h2 {
+
+  margin-bottom: 10px;
+
+}
+
+.tipo {
+
+  background: #ffe0e6;
+
+  color: #ff4d6d;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+}

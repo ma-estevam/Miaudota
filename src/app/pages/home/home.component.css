@@ -1,0 +1,55 @@
+.hero {
+
+  height: 80vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+}
+
+.hero-text {
+
+  max-width: 700px;
+
+}
+
+.hero h1 {
+
+  font-size: 56px;
+
+  margin-bottom: 20px;
+
+  color: #222;
+
+}
+
+.hero p {
+
+  font-size: 20px;
+
+  color: #666;
+
+  margin-bottom: 30px;
+
+}
+
+button {
+
+  padding: 10px 30px;
+
+  border-radius: 12px;
+
+}
+
+@media(max-width:768px){
+
+  .hero h1 {
+
+    font-size: 36px;
+
+  }
+
+}

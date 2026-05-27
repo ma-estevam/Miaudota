@@ -1,1 +1,53 @@
-<p>cadastro works!</p>
+<div class="form-container">
+
+  <h1>Cadastrar Pet 🐶</h1>
+
+  <form (ngSubmit)="salvar()">
+
+    <input
+      type="text"
+      name="nome"
+      [(ngModel)]="pet.nome"
+      placeholder="Nome">
+
+    <input
+      type="text"
+      name="idade"
+      [(ngModel)]="pet.idade"
+      placeholder="Idade">
+
+    <input
+      type="text"
+      name="raca"
+      [(ngModel)]="pet.raca"
+      placeholder="Raça">
+
+    <input
+      type="text"
+      name="tipo"
+      [(ngModel)]="pet.tipo"
+      placeholder="Tipo">
+
+    <textarea
+      name="descricao"
+      [(ngModel)]="pet.descricao"
+      placeholder="Descrição">
+    </textarea>
+
+    <input
+      type="text"
+      name="imagem"
+      [(ngModel)]="pet.imagem"
+      placeholder="URL da imagem">
+
+    <button
+      mat-raised-button
+      color="primary">
+
+      Salvar Pet
+
+    </button>
+
+  </form>
+
+</div>

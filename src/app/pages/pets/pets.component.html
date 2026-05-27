@@ -1,1 +1,11 @@
-<p>pets works!</p>
+<div *ngIf="loading">
+  <p>Carregando...</p>
+</div>
+
+<div class="cards-container">
+
+  <app-pet-card
+      *ngFor="let pet of pets"
+  [pet]="pet">
+</app-pet-card>
+</div>

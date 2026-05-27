@@ -1,16 +1,13 @@
-.footer {
-    background-color: #673ab7;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-  }
+footer {
 
-  @media (max-width: 768px) {
+  height: 70px;
 
-    .footer {
-      font-size: 0.9rem;
-      padding: 20px 10px;
-    }
-  
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #222;
+
+  color: white;
+
+}
